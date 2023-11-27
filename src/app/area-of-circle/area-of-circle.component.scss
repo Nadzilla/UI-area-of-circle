@@ -1,8 +1,11 @@
 .main-container {
-
+    text-align: center;
+    padding-top: 50px;
     &__textfield {
-        width: 450px;
-
+        // width: 450px;
+        width: 50%;
+        margin: 0 auto;
+      
         &__error {
             color: red;
             font-size: 12px;
