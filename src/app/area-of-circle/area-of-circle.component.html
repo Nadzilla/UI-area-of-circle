@@ -1,0 +1,29 @@
+<div class="main-container">
+    <div class="main-container__textfield">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Radius of Circle:</span>
+            <input [formControl]="formGroup.controls.radius" required type="text" class="form-control" aria-label="Radius" aria-describedby="basic-addon1" [cdkTrapFocusAutoCapture]="true" [cdkTrapFocus]="true">
+        </div>
+        <div class="main-container__textfield__error" *ngIf="buttonSubmitted && formGroup.get('radius')?.errors">
+            <span *ngIf="formGroup.get('radius')?.hasError('required')">
+                Radius must be provided
+            </span>
+            <span *ngIf="formGroup.get('radius')?.hasError('pattern')">
+                Radius must be numeric
+            </span>
+            <span *ngIf="formGroup.get('radius')?.hasError('numericValid') && !formGroup.get('radius')?.hasError('pattern')">
+                Radius must be between 1 and 100
+            </span>
+        </div>
+
+        <div class="main-container__textfield__area" *ngIf="status === 'loaded' && !formGroup.get('radius')?.errors && area">
+            <span>
+                The area is: {{ area }}
+            </span>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="getArea()">Get Area</button>
+    <!-- [disabled]="!formGroup.valid" -->
+</div>
+

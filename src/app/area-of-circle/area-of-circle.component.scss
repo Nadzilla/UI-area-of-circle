@@ -1,0 +1,14 @@
+.main-container {
+
+    &__textfield {
+        width: 450px;
+
+        &__error {
+            color: red;
+            font-size: 12px;
+        }
+        &__area {
+            color: green;
+        }
+    }
+}
